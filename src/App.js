@@ -6,7 +6,7 @@ import NarBar from "./compoments/NavBar/NarBar";
 import ExerciseDetailsf from "./pages/ExerciseDetails/ExerciseDetails";
 function App() {
   return (
-    <div className="app" style={{ width: " 1440px" }}>
+    <div className="app" >
       <NarBar />
       <Routes>
         <Route path="/" element={<Home />} />
