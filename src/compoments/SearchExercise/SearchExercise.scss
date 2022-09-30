@@ -1,0 +1,50 @@
+@use "../../SCSS/" as *;
+
+.SearchExercise {
+  margin-top: 3rem;
+
+  .SearchExercise_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .text__header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+    .search__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      .SearchExercise__input {
+        padding: 1rem 2rem;
+        width: 600px;
+        background-color: $color-white;
+        box-shadow: $box-shadow;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        &:focus {
+          border: 2px solid $color-stone-black;
+        }
+      }
+      .btn__button {
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        background: $red-pink;
+        border-radius: 1rem;
+        color: $color-white;
+
+        &:hover {
+          background-color: $red-orange;
+        }
+      }
+    }
+  }
+}

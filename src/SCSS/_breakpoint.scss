@@ -1,0 +1,23 @@
+//=======MObile ============///
+@mixin ipadMini {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 415px) {
+    @content;
+  }
+}
+/* reponsive tablet medium  devices */
+@mixin tablet {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}

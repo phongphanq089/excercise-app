@@ -1,20 +1,19 @@
-import "./App.css";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Home from "./pages/Home";
-import Footer from "./compoments/Footer";
-import Navbar from "./compoments/Navbar";
-import ExerciseDetailsf from "./pages/ExerciseDetails";
+import Home from "./pages/Home/Home";
+import Footer from "./compoments/Footer/Footer";
+import NarBar from "./compoments/NavBar/NarBar";
+import ExerciseDetailsf from "./pages/ExerciseDetails/ExerciseDetails";
 function App() {
   return (
-    <Box width="400px" sx={{ width: { xl: "1488px" } }} m="auto">
-      <Navbar />
+    <div className="app" style={{ width: " 1440px" }}>
+      <NarBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exersice/:id" element={<ExerciseDetailsf />} />
       </Routes>
       <Footer />
-    </Box>
+    </div>
   );
 }
 
