@@ -1,27 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./exercises.scss";
 import ExerciseCart from "../ExerciseCart/ExerciseCart";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { exerciseOptions, fetchData } from "../../utils/fetchData";
 import { useState } from "react";
-const Exercise = ({ setExercises, exercises, setBodyPart }) => {
-  console.log(exercises);
+import BodyPart from "../BodyPart/BodyPart";
+const Exercise = ({ setExercises, exercises, setBodyPart ,bodyPart}) => {
+  // console.log(exercises);
   const exercisesCurrenPage = 12;
   const [curentPage, setCurentpage] = useState(1);
   const indexOflastExercise = curentPage * exercisesCurrenPage;
   const indexofFirtExercise = indexOflastExercise - exercisesCurrenPage;
-
+ 
   const curentExercises = exercises.slice(
     indexofFirtExercise,
     indexOflastExercise
   );
-  console.log(curentExercises);
+ //0--12  , 12--24, 24--36, 36--48,......
+  
+  // console.log(curentExercises);
   const paginate = (e, value) => {
     setCurentpage(value);
 
     window.scroll({ top: 1800, behavior: "smooth" });
   };
+
+  // ham thuc hien click cac bai tap tren thanh se rander ra cac bai tap
+  useEffect (() => {
+      const fechtExerciseData = async() => {
+         let ExercisesData = []
+         if (bodyPart === "all"){
+          ExercisesData =  await fetchData(
+            `https://exercisedb.p.rapidapi.com/exercises`,
+            exerciseOptions
+          )
+         }else {
+        
+          ExercisesData = await fetchData(
+            `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions
+          )
+         }
+         setExercises( ExercisesData)
+      }
+      fechtExerciseData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[bodyPart])
 
   return (
     <div className="Exercise">
