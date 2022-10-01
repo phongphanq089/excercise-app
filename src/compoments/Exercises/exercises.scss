@@ -1,0 +1,44 @@
+@use "../../SCSS/" as *;
+
+.Exercise {
+  margin-top: 4rem;
+  padding: 0 6rem;
+  @include ipad {
+    padding: 0 4rem;
+  }
+  @include ipadMini {
+    padding: 0 4rem;
+  }
+  @include mobile {
+    padding: 0 2rem;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .panginations {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Exercises__content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include ipad {
+      gap: 1rem;
+    }
+    @include ipadMini {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
