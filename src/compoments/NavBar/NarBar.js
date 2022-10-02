@@ -3,6 +3,7 @@ import "./navbar.scss";
 import Logo from "../../accsets/image/logo.jpg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
 const NarBar = () => {
   const [active, setActive] = useState("");
   return (
@@ -26,7 +27,7 @@ const NarBar = () => {
           }
           href="#exercises"
         >
-          Exercise
+          Exercise{" "}
         </a>
       </div>
     </div>

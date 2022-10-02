@@ -3,7 +3,7 @@ import "../BodyPart/bodyPart.scss";
 import BodyPart from "../BodyPart/BodyPart";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import { FcLeft, FcRight } from "react-icons/fc";
-
+import ExerciseCart from "../ExerciseCart/ExerciseCart";
 const LeftArrow = () => {
   const { isFirstItemVisible, scrollPrev } =
     React.useContext(VisibilityContext);
@@ -36,7 +36,7 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScroll = ({ data, bodyPart, setBodyPart }) => {
+const HorizontalScroll = ({ data, bodyPart, setBodyPart, bodyParts }) => {
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {data.map((item) => (
@@ -45,7 +45,16 @@ const HorizontalScroll = ({ data, bodyPart, setBodyPart }) => {
           key={item.id || item}
           style={{ padding: " 0 8rem" }}
         >
-          <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          {/* dữ liệu các bài tập được truyền qua compoment Bodypart và nó render ra */}
+          {bodyParts ? (
+            <BodyPart
+              item={item}
+              bodyPart={bodyPart}
+              setBodyPart={setBodyPart}
+            />
+          ) : (
+            <ExerciseCart exercise={item} />
+          )}
         </div>
       ))}
     </ScrollMenu>

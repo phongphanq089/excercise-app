@@ -5,20 +5,19 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { exerciseOptions, fetchData } from "../../utils/fetchData";
 import { useState } from "react";
-import BodyPart from "../BodyPart/BodyPart";
-const Exercise = ({ setExercises, exercises, setBodyPart ,bodyPart}) => {
+const Exercise = ({ setExercises, exercises, bodyPart }) => {
   // console.log(exercises);
   const exercisesCurrenPage = 12;
   const [curentPage, setCurentpage] = useState(1);
   const indexOflastExercise = curentPage * exercisesCurrenPage;
   const indexofFirtExercise = indexOflastExercise - exercisesCurrenPage;
- 
+
   const curentExercises = exercises.slice(
     indexofFirtExercise,
     indexOflastExercise
   );
- //0--12  , 12--24, 24--36, 36--48,......
-  
+  //0--12  , 12--24, 24--36, 36--48,......
+
   // console.log(curentExercises);
   const paginate = (e, value) => {
     setCurentpage(value);
@@ -27,25 +26,25 @@ const Exercise = ({ setExercises, exercises, setBodyPart ,bodyPart}) => {
   };
 
   // ham thuc hien click cac bai tap tren thanh se rander ra cac bai tap
-  useEffect (() => {
-      const fechtExerciseData = async() => {
-         let ExercisesData = []
-         if (bodyPart === "all"){
-          ExercisesData =  await fetchData(
-            `https://exercisedb.p.rapidapi.com/exercises`,
-            exerciseOptions
-          )
-         }else {
-        
-          ExercisesData = await fetchData(
-            `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions
-          )
-         }
-         setExercises( ExercisesData)
+  useEffect(() => {
+    const fechtExerciseData = async () => {
+      let ExercisesData = [];
+      if (bodyPart === "all") {
+        ExercisesData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises`,
+          exerciseOptions
+        );
+      } else {
+        ExercisesData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          exerciseOptions
+        );
       }
-      fechtExerciseData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[bodyPart])
+      setExercises(ExercisesData);
+    };
+    fechtExerciseData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bodyPart]);
 
   return (
     <div className="Exercise">
@@ -55,6 +54,7 @@ const Exercise = ({ setExercises, exercises, setBodyPart ,bodyPart}) => {
           <ExerciseCart exercise={exercise} key={index} />
         ))}
       </div>
+      {/* phần này là phần pagination */}
       <Stack m=" 7rem 0" spacing={2} className="panginations">
         {exercises.length > 9 && (
           <Pagination

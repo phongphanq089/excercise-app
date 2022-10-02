@@ -1,0 +1,25 @@
+@use "../../SCSS/" as *;
+
+.ExercisesVideo {
+  padding: 4rem 2rem;
+
+  .content__header {
+    margin-bottom: 2rem;
+  }
+  .ExerciesVideo__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+
+    .exercise__video {
+      width: 350px;
+      height: 370px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
