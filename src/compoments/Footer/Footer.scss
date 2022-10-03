@@ -1,0 +1,58 @@
+@use "../../SCSS/" as *;
+
+.Footer {
+  width: 100%;
+  height: 100%;
+  background-color: #fdba74;
+  background-image: url(../../accsets/image/footer-bg.jpg);
+  .about__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    .logo__footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 1rem;
+        border: 2px solid $red-pink;
+      }
+      h4 {
+        font-size: 3rem;
+        color: #ffedd5;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  .icon__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    h3 {
+      font-size: 1.5rem;
+      color: #ffedd5;
+    }
+    .icon-me {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      a {
+        font-size: 1.5rem;
+        color: $red-pink;
+        transition: all 0.4s ease;
+        &:hover {
+          cursor: pointer;
+          color: #ffedd5;
+        }
+      }
+    }
+  }
+}

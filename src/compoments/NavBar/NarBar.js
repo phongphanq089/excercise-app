@@ -25,7 +25,7 @@ const NarBar = () => {
           className={
             active === "exercises" ? "text-exercises active" : "text-exercises"
           }
-          href="#exercises"
+          href="#exercise"
         >
           Exercise{" "}
         </a>

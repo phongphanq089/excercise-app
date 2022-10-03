@@ -2,24 +2,51 @@
 
 .ExercisesVideo {
   padding: 4rem 2rem;
-
+  @include ipadMini {
+    padding: 3rem 0;
+  }
   .content__header {
     margin-bottom: 2rem;
   }
   .ExerciesVideo__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
+    gap: 2rem;
+
+    @include tablet {
+      gap: 5rem;
+    }
+    @include ipad {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem;
+    }
+    @include ipadMini {
+      grid-template-columns: 1fr;
+    }
+    @include mobile {
+      gap: 7rem;
+    }
 
     .exercise__video {
-      width: 350px;
-      height: 370px;
-
+      width: fit-content;
+      height: fit-content;
       img {
-        width: 100%;
-        height: 100%;
+        width: 300px;
+        height: 300px;
         object-fit: cover;
+        border: 4px solid #ccc;
+        @include tablet {
+          width: 90%;
+          height: 90%;
+        }
+        @include mobile {
+          width: 100%;
+          height: 100%;
+        }
       }
+    }
+    h4 {
+      margin-top: 1rem;
     }
   }
 }

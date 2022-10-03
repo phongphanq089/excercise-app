@@ -7,18 +7,46 @@
   gap: 8rem;
   margin-bottom: 7rem;
   margin-left: 3rem;
+
+  @include tablet {
+    gap: 3rem;
+  }
+  @include ipadMini {
+    flex-direction: column;
+    margin-left: 0;
+  }
   .Detail-image__content {
     padding: 4rem 3rem;
     border-radius: 3rem;
     background-color: $color-white;
     box-shadow: $box-shadow;
+
+    @include ipad {
+      padding: 2rem 1rem;
+    }
+    img {
+      @include ipad {
+        width: 15rem;
+        height: 20rem;
+        object-fit: cover;
+      }
+      @include ipadMini {
+        width: 20rem;
+      }
+      @include mobile {
+        width: 15rem;
+        height: 15rem;
+      }
+    }
   }
   .about-detail__content {
     padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
+    @include ipadMini {
+      padding: 0;
+    }
     .text__about {
       display: flex;
       flex-direction: column;

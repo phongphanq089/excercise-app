@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import { exerciseOptions, fetchData } from "../../utils/fetchData";
 import { useState } from "react";
 const Exercise = ({ setExercises, exercises, bodyPart }) => {
-  // console.log(exercises);
+  console.log(exercises);
   const exercisesCurrenPage = 12;
   const [curentPage, setCurentpage] = useState(1);
   const indexOflastExercise = curentPage * exercisesCurrenPage;
@@ -47,7 +47,7 @@ const Exercise = ({ setExercises, exercises, bodyPart }) => {
   }, [bodyPart]);
 
   return (
-    <div className="Exercise">
+    <div className="Exercise" id="exercise">
       <h1>Showing Result</h1>
       <div className="Exercises__content">
         {curentExercises.map((exercise, index) => (

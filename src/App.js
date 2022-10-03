@@ -6,14 +6,16 @@ import NarBar from "./compoments/NavBar/NarBar";
 import ExerciseDetailsf from "./pages/ExerciseDetails/ExerciseDetails";
 function App() {
   return (
-    <div className="app">
-      <NarBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/exercise/:id" element={<ExerciseDetailsf />} />
-      </Routes>
-      <Footer />
-    </div>
+    <>
+      <div className="app">
+        <NarBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/exercise/:id" element={<ExerciseDetailsf />} />
+        </Routes>
+        <Footer />
+      </div>
+    </>
   );
 }
 
