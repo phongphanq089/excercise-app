@@ -50,9 +50,9 @@ const Exercise = ({ setExercises, exercises, bodyPart }) => {
     <div className="Exercise" id="exercise">
       <h1>Showing Result</h1>
       <div className="Exercises__content">
-        {curentExercises.map((exercise, index) => (
-          <ExerciseCart exercise={exercise} key={index} />
-        ))}
+        {curentExercises ?(curentExercises.map((exercise, index) => (
+          <ExerciseCart exercise={exercise} key={index} /> 
+        ))): "API error..."}
       </div>
       {/* phần này là phần pagination */}
       <Stack m=" 7rem 0" spacing={2} className="panginations">
